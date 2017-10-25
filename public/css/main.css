@@ -6,7 +6,18 @@
     height: 70px;
     padding: 10px;
     border: 1px solid #aaaaaa;
+	background-color: #DDD;
 }
+
+#progress_div{
+	
+	width: 70%;
+	margin-left: 25%;
+	height: 150px;
+	border: 1px solid #aaaaaa;
+	background-color: #DCC;
+}
+
 body {
     background: #AACCAA;
     font-family: arial, sans-serif;
@@ -16,6 +27,7 @@ body {
 main {
     max-width: 80%;
     margin: auto;
+	padding-left: 20%;
 }
 
 header {
@@ -54,9 +66,14 @@ footer ul {
 	list-style-type: none;
 }
 
-.is-palindrome {
-	color: #0000FF;
-}
-.not-palindrome {
-	color: #FF0000;
+nav {
+	height: 100%; /* 100% Full-height */
+    width: 20%; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #BBC; /*Purple*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
