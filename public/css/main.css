@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+body {
+    background: #AACCAA;
+    font-family: arial, sans-serif;
+    font-size: 15pt;
+}
+
+main {
+    max-width: 80%;
+    margin: auto;
+}
+
+header {
+    border-bottom: 1px solid #99DD99;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #441;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 2;
+}
+
+ul{
+	font-size: 1rem;
+}
+
+footer ul {
+	color: #DDDDAA;
+	font-size: 0.75rem;
+	list-style-type: none;
+}
+
+.is-palindrome {
+	color: #0000FF;
+}
+.not-palindrome {
+	color: #FF0000;
+}
