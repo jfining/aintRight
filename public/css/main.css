@@ -2,40 +2,48 @@
     box-sizing: border-box;
 }
 
-#progress_bar{
-	
-	width: 70%;
-	margin-left: 25%;
-	height: 150px;
-	border: 1px solid #aaaaaa;
-	background-color: #DCC;
+/*#progress_bar {*/
+
+    /*width: 50%;*/
+    /*margin-left: 25%;*/
+    /*height: 50px;*/
+    /*border: 1px solid #aaaaaa;*/
+    /*background-color: #DCC;*/
+/*}*/
+
+#next-button {
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    border-radius: 10px;
 }
 
-.text-slot{
-	padding: 5px;
-	height: auto;
-	border-radius: 10px;
-	vertical-align: middle;
+.text-slot {
+    padding: 5px;
+    height: auto;
+    border-radius: 10px;
+    vertical-align: middle;
 }
 
-.text-slot p{
-	vertical-align: middle;
-	margin: 10px;
+.text-slot p {
+    vertical-align: middle;
+    margin: 10px;
 }
 
-.answer-key{
-	background-color: #EEEEEE;
-	width: 250px;
+.answer-key {
+    margin: 10px;
+    background-color: #EEEEEE;
+    width: 250px;
 }
 
-.answer-key p{
-	text-align: center;
+.answer-key p {
+    text-align: center;
 }
 
-.answer-slot{
-	background-color: white;
-	width: auto;
-	display: inline-block;
+.answer-slot {
+    background-color: white;
+    width: auto;
+    display: inline-block;
 }
 
 body {
@@ -47,7 +55,7 @@ body {
 main {
     max-width: 80%;
     margin: auto;
-	padding-left: 20%;
+    padding-left: 20%;
 }
 
 header {
@@ -75,18 +83,18 @@ p {
     font-size: 1rem;
 }
 
-ul{
-	font-size: 1rem;
+ul {
+    font-size: 1rem;
 }
 
 footer ul {
-	color: #DDDDAA;
-	font-size: 0.75rem;
-	list-style-type: none;
+    color: #DDDDAA;
+    font-size: 0.75rem;
+    list-style-type: none;
 }
 
 nav {
-	height: 100%; /* 100% Full-height */
+    height: 100%; /* 100% Full-height */
     width: 20%; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
