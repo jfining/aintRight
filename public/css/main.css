@@ -1,15 +1,8 @@
 * {
     box-sizing: border-box;
 }
-#div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-	background-color: #DDD;
-}
 
-#progress_div{
+#progress_bar{
 	
 	width: 70%;
 	margin-left: 25%;
@@ -20,8 +13,14 @@
 
 .text-slot{
 	padding: 5px;
-	height: 50px;
+	height: auto;
 	border-radius: 10px;
+	vertical-align: middle;
+}
+
+.text-slot p{
+	vertical-align: middle;
+	margin: 10px;
 }
 
 .answer-key{
@@ -29,8 +28,14 @@
 	width: 250px;
 }
 
+.answer-key p{
+	text-align: center;
+}
+
 .answer-slot{
 	background-color: white;
+	width: auto;
+	display: inline-block;
 }
 
 body {
@@ -68,7 +73,6 @@ h3 {
 
 p {
     font-size: 1rem;
-    line-height: 2;
 }
 
 ul{
