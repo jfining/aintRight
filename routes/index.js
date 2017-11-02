@@ -6,6 +6,7 @@ const constructorMethod = (app) => {
         res.render("home", {
             chapterId: req.params.chapterId,
             problemId: req.params.problemId,
+            problemCount: Object.keys(contentData[req.params.chapterId]).length,
             problem: contentData[req.params.chapterId][req.params.problemId]
         })
     });

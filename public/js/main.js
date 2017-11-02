@@ -103,7 +103,13 @@ function drop(ev) {
     ev.target.textContent = sourceText;
 }
 
-function goToNextProblem(chapterId, problemId) {
-    problemId++;
+function goToNextProblem(chapterId, problemId, problemCount) {
+    console.log(problemCount);
+    if(problemId === problemCount) {
+        chapterId++;
+        problemId = 1;
+    } else {
+        problemId++;
+    }
     window.location.href = `/${chapterId}/${problemId}`;
 }
