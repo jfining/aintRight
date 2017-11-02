@@ -1,15 +1,22 @@
+<div id="header">
+    <button id="next-button" onclick="goToNextProblem({{chapterId}}, {{problemId}})">Next</button>
+</div>
 <div id="problem-and-answers">
-    <div id="problem">
-        <ul id="problem-slots">
-            {{#each problem.slots}}
-            <li class="text-slot problem-slot" ondrop="drop(event)" ondragover="allowDrop(event)">{{this.init}}</li>
-            {{/each}}
-        </ul>
+    <!--<div id="problem">-->
+    <!--<ul id="problem-slots">-->
+    <!--{{#each problem.slots}}-->
+    <!--<li class="text-slot answer-slot" ondrop="drop(event)" ondragover="allowDrop(event)">{{this.init}}</li>-->
+    <!--{{/each}}-->
+    <!--</ul>-->
+    <!--</div>-->
+    <div id="question">
+        {{{problem.question}}}
     </div>
     <div id="answers">
         <ul id="answer-slots">
             {{#each problem.answers}}
-            <li class="text-slot answer-slot" draggable="true" ondragstart="drag(event)">{{this}}
+            <li class="text-slot answer-key" draggable="true" ondragstart="drag(event)">
+                {{this}}
             </li>
             {{/each}}
         </ul>

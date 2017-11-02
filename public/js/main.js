@@ -70,9 +70,22 @@
 // 		alert("Correct! Carry on.");
 // 	}
 // };
-
 let sourceSlot = null;
 let sourceText = null;
+
+$(document).ready(function() {
+    const question = document.getElementById("question");
+    const questionChildren = question.childNodes;
+    console.log(question.childElementCount);
+    for (let i = 0; i < questionChildren.length; i++) {
+        if (questionChildren[i].classList && questionChildren[i].classList.contains("answer-slot")) {
+            console.log(questionChildren[i].textContent);
+            // ondrop="drop(event)" ondragover="allowDrop(event)
+            questionChildren[i].addEventListener("drop", drop);
+            questionChildren[i].addEventListener("dragover", allowDrop);
+        }
+    }
+});
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -85,6 +98,12 @@ function drag(ev) {
 
 function drop(ev) {
     ev.preventDefault();
+    console.log(sourceSlot.textContent);
     sourceSlot.textContent = ev.target.textContent;
     ev.target.textContent = sourceText;
+}
+
+function goToNextProblem(chapterId, problemId) {
+    problemId++;
+    window.location.href = `/${chapterId}/${problemId}`;
 }
