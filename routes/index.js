@@ -1,8 +1,15 @@
-const subRoutes = require("./submit");
 const path = require('path');
+const contentData = require('../content');
 
 const constructorMethod = (app) => {
-    app.use("/", subRoutes);
+    app.use("/:chapterId/:problemId", (req, res) => {
+        res.render("home", {
+            problem: contentData[req.params.chapterId][req.params.problemId]
+        })
+    });
+    app.use("/", (req, res) => {
+        res.redirect("/1/1");
+    });
     app.use("*", (req, res) => {
         res.redirect('/');
     })

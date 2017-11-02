@@ -10,8 +10,8 @@ app.use("/public", staticAssets);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-//app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-//app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 configRoutes(app);
 

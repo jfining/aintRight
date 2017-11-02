@@ -11,41 +11,6 @@
     /*background-color: #DCC;*/
 /*}*/
 
-#next-button {
-    height: 50px;
-    width: 100px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.text-slot {
-    padding: 5px;
-    height: auto;
-    border-radius: 10px;
-    vertical-align: middle;
-}
-
-.text-slot p {
-    vertical-align: middle;
-    margin: 10px;
-}
-
-.answer-key {
-    margin: 10px;
-    background-color: #EEEEEE;
-    width: 250px;
-}
-
-.answer-key p {
-    text-align: center;
-}
-
-.answer-slot {
-    background-color: white;
-    width: auto;
-    display: inline-block;
-}
-
 body {
     background: #AACCAA;
     font-family: arial, sans-serif;
@@ -85,6 +50,7 @@ p {
 
 ul {
     font-size: 1rem;
+    list-style: none;
 }
 
 footer ul {
@@ -103,4 +69,27 @@ nav {
     background-color: #BBC; /*Purple*/
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#next-button {
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.text-slot {
+    height: auto;
+    border-radius: 10px;
+    vertical-align: middle;
+    margin: 10px;
+    background-color: #EEEEEE;
+    width: auto;
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+.answer-slot {
+    background-color: white;
 }

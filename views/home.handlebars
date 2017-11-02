@@ -1,0 +1,17 @@
+<div id="problem-and-answers">
+    <div id="problem">
+        <ul id="problem-slots">
+            {{#each problem.slots}}
+            <li class="text-slot problem-slot" ondrop="drop(event)" ondragover="allowDrop(event)">{{this.init}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div id="answers">
+        <ul id="answer-slots">
+            {{#each problem.answers}}
+            <li class="text-slot answer-slot" draggable="true" ondragstart="drag(event)">{{this}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
