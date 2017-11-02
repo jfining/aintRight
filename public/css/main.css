@@ -27,31 +27,31 @@ header {
     border-bottom: 1px solid #99DD99;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #441;
-    margin-bottom: 5px;
-}
+/*h1, h2, h3, h4, h5, h6 {*/
+    /*color: #441;*/
+    /*margin-bottom: 5px;*/
+/*}*/
 
-h1 {
-    font-size: 2rem;
-}
+/*h1 {*/
+    /*font-size: 2rem;*/
+/*}*/
 
-h2 {
-    font-size: 1.75rem;
-}
+/*h2 {*/
+    /*font-size: 1.75rem;*/
+/*}*/
 
-h3 {
-    font-size: 1.5rem;
-}
+/*h3 {*/
+    /*font-size: 1.5rem;*/
+/*}*/
 
-p {
-    font-size: 1rem;
-}
+/*p {*/
+    /*font-size: 1rem;*/
+/*}*/
 
-ul {
-    font-size: 1rem;
-    list-style: none;
-}
+/*ul {*/
+    /*font-size: 1rem;*/
+    /*list-style: none;*/
+/*}*/
 
 footer ul {
     color: #DDDDAA;
@@ -78,7 +78,7 @@ nav {
     border-radius: 10px;
 }
 
-.text-slot {
+.answer-key {
     height: auto;
     border-radius: 10px;
     vertical-align: middle;
@@ -90,6 +90,11 @@ nav {
     display: inline-block;
 }
 
-.answer-key {
-    background-color: white;
+.answer-slot {
+    margin: 0;
+    padding: 0 5px 0 5px;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    display: inline-block;
+    float: left;
 }

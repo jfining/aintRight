@@ -58,7 +58,7 @@ const contentData = {
             "Python doesn't like it when you try to use a variable that<br>" +
             "doesn't exist. Make sure you spell your variables consistently!</p>" +
             '<p class="code">camelot = "A rather silly place"<br>' +
-            'print(<div id="slot0" class="text-slot answer-slot"></div>)</p>',
+            'print(<div id="slot0" class="text-slot answer-slot">camelort</div>)</p>',
             slots: [{
                 init: "camelort",
                 correct: "camelot"
