@@ -1,5 +1,5 @@
 const path = require('path');
-const contentData = require('../content');
+const contentData = require('../public/js/content');
 
 const constructorMethod = (app) => {
     app.use("/:chapterId/:problemId", (req, res) => {

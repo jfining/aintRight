@@ -72,15 +72,21 @@
 // };
 let sourceSlot = null;
 let sourceText = null;
+let chapterId = null;
+let problemId = null;
+const chosenAnswers = [];
 
 $(document).ready(function() {
+    chapterId = document.getElementById("header").getAttribute("data-chapter");
+    problemId = document.getElementById("header").getAttribute("data-problem");
+
     const question = document.getElementById("question");
     const questionChildren = question.childNodes;
     console.log(question.childElementCount);
     for (let i = 0; i < questionChildren.length; i++) {
         if (questionChildren[i].classList && questionChildren[i].classList.contains("answer-slot")) {
             console.log(questionChildren[i].textContent);
-            // ondrop="drop(event)" ondragover="allowDrop(event)
+            chosenAnswers.push(questionChildren[i].textContent);
             questionChildren[i].addEventListener("drop", drop);
             questionChildren[i].addEventListener("dragover", allowDrop);
         }
@@ -93,7 +99,7 @@ function allowDrop(ev) {
 
 function drag(ev) {
     sourceSlot = ev.target;
-    sourceText = sourceSlot.textContent;
+    sourceText = sourceSlot.textContent.trim();
 }
 
 function drop(ev) {
@@ -101,6 +107,23 @@ function drop(ev) {
     console.log(sourceSlot.textContent);
     sourceSlot.textContent = ev.target.textContent;
     ev.target.textContent = sourceText;
+    chosenAnswers[ev.target.getAttribute("data-answer-index")] = sourceText;
+    if(checkAnswers()) {
+        alert("Your answers are correct! Good job!");
+    }
+}
+
+function checkAnswers() {
+    const correctAnswers = contentData[chapterId][problemId].answers;
+    console.log(correctAnswers);
+    console.log(chosenAnswers);
+    for(let i = 0; i < chosenAnswers.length; i++) {
+        console.log(`${chosenAnswers[i]} vs ${correctAnswers[i]}`);
+        if(chosenAnswers[i] !== correctAnswers[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function goToNextProblem(chapterId, problemId, problemCount) {
