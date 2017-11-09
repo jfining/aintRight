@@ -80,6 +80,8 @@ $(document).ready(function() {
     chapterId = document.getElementById("header").getAttribute("data-chapter");
     problemId = document.getElementById("header").getAttribute("data-problem");
 
+	drawProgress(chapterId, problemId);
+	
     const question = document.getElementById("question");
     const questionChildren = question.childNodes;
     console.log(question.childElementCount);
@@ -153,4 +155,32 @@ function goToPreviousProblem(chapterId, problemId) {
 		problemId--;
 	}
 	window.location.href = `/${chapterId}/${problemId}`;
+}
+
+function drawProgress(chapterId, problemId){
+	var progress = document.getElementById("drawing");
+	var svgns = 'http://www.w3.org/2000/svg';
+	var xlinkns = 'http://www.w3.org/1999/xlink';
+	for(i = 0; i < Object.keys(contentData[chapterId]).length ; i++){
+		var shape = document.createElementNS(svgns, "circle");
+		shape.setAttributeNS(null, "cx", (40 + (50 * i)));
+		shape.setAttributeNS(null, "cy", 40);
+		shape.setAttributeNS(null, "r",  20);
+		if(i < problemId - 1){
+			shape.setAttributeNS(null, "fill", "green");
+		}
+		if(i >= problemId - 1){
+			shape.setAttributeNS(null, "fill", "blue");
+		}
+		if(i == Object.keys(contentData[chapterId]).length - 1){
+			shape.setAttributeNS(null, "fill", "yellow");
+		}
+		if(problemId == (i + 1)){
+			shape.setAttributeNS(null, "stroke", "black");
+		}
+		progress.appendChild(shape);
+		//console.log(i);
+	}
+	//console.log("JJJ");
+	
 }

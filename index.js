@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const SVG = require("svg.js")
 const app = express();
 const staticAssets = express.static(__dirname + '/public');
 

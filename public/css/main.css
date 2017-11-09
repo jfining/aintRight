@@ -98,3 +98,7 @@ button {
     display: inline-block;
     float: left;
 }
+svg{
+	width: 100%;
+	height: 15%;
+}
