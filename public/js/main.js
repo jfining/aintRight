@@ -139,13 +139,17 @@ function goToNextProblem(chapterId, problemId, problemCount) {
 
 function goToPreviousProblem(chapterId, problemId) {
 	if(problemId == 1){
+		console.log(problemId);
+		console.log(chapterId);
 		if(chapterId == 1){
 			
 		} else {
 			chapterId--;
-			problemId = Object.keys(contentData[chapter-id]).length;
+			problemId = Object.keys(contentData[chapterId]).length;
 		}
 	} else {
+		console.log(problemId);
+		console.log(chapterId);
 		problemId--;
 	}
 	window.location.href = `/${chapterId}/${problemId}`;
