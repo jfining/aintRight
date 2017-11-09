@@ -136,3 +136,17 @@ function goToNextProblem(chapterId, problemId, problemCount) {
     }
     window.location.href = `/${chapterId}/${problemId}`;
 }
+
+function goToPreviousProblem(chapterId, problemId) {
+	if(problemId == 1){
+		if(chapterId == 1){
+			
+		} else {
+			chapterId--;
+			problemId = Object.keys(contentData[chapter-id]).length;
+		}
+	} else {
+		problemId--;
+	}
+	window.location.href = `/${chapterId}/${problemId}`;
+}

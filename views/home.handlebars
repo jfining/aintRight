@@ -1,5 +1,6 @@
 <div id="header" data-chapter={{chapterId}} data-problem={{problemId}}>
     <h1>Problem {{problemId}} of {{problemCount}}</h1>
+	<button id="prev-button" onclick="goToPreviousProblem({{chapterId}}, {{problemId}})">Prev</button>
     <button id="next-button" onclick="goToNextProblem({{chapterId}}, {{problemId}}, {{problemCount}})">Next</button>
 </div>
 <div id="problem-and-answers">
