@@ -110,7 +110,7 @@ const contentData = {
 			'<p class="code">ministry = "silly walks"<br>' +
 			'ministry[6] = "b"<br>' +
 			'print(ministry)</p>' +
-			'<p><div data-answer-index=0 id="slot0" class="text-slot answer-slot"></div></p>',
+			'<p><div data-answer-index=0 id="slot0" class="text-slot answer-slot"> </div></p>',
 			answers: ["TypeError on line 2"],
 			choices: ["sillybwalks", "silly balks", "TypeError on line 2"]
 		}, 4: {
@@ -118,7 +118,7 @@ const contentData = {
 			'<p class="code">words = "out of cheese"<br>' +
 			'more_words = words[0:2] + words[-6:]<br>' +
 			'print(more_words)</p>' +
-			'<div data-answer-index=0 id="slot0" class="text-slot answer-slot"></div>',
+			'<div data-answer-index=0 id="slot0" class="text-slot answer-slot"> </div>',
 			answers: ["oucheese"],
 			choices: ["outcheese", "IndexError on line 2", "oucheese", "out cheese"]
 		}, 5: {

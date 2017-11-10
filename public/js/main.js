@@ -161,24 +161,32 @@ function drawProgress(chapterId, problemId){
 	var progress = document.getElementById("drawing");
 	var svgns = 'http://www.w3.org/2000/svg';
 	var xlinkns = 'http://www.w3.org/1999/xlink';
-	for(i = 0; i < Object.keys(contentData[chapterId]).length ; i++){
+	for(i = 1; i <= Object.keys(contentData[chapterId]).length ; i++){
 		var shape = document.createElementNS(svgns, "circle");
 		shape.setAttributeNS(null, "cx", (40 + (50 * i)));
 		shape.setAttributeNS(null, "cy", 40);
 		shape.setAttributeNS(null, "r",  20);
-		if(i < problemId - 1){
+		if(i < problemId){
 			shape.setAttributeNS(null, "fill", "green");
-		}
-		if(i >= problemId - 1){
-			shape.setAttributeNS(null, "fill", "blue");
-		}
-		if(i == Object.keys(contentData[chapterId]).length - 1){
+		} else if(i == Object.keys(contentData[chapterId]).length){
 			shape.setAttributeNS(null, "fill", "yellow");
+		} else if(i == problemId){
+			shape.setAttributeNS(null, "fill", "lightgray")
+		} else {
+			shape.setAttributeNS(null, "fill-opacity", "0");
 		}
-		if(problemId == (i + 1)){
-			shape.setAttributeNS(null, "stroke", "black");
+		
+		if(problemId == i){
+			shape.setAttributeNS(null, "stroke", "white");
+		} else if (i == Object.keys(contentData[chapterId]).length){
+			shape.setAttributeNS(null, "stroke", "gold");
+		} else{
+			shape.setAttributeNS(null, "stroke", "black")
 		}
-		progress.appendChild(shape);
+		svgLink = document.createElementNS(svgns, "a");
+		svgLink.setAttributeNS(xlinkns, "href", `/${chapterId}/${i}`);
+		progress.appendChild(svgLink);
+		svgLink.appendChild(shape);
 		//console.log(i);
 	}
 	//console.log("JJJ");
