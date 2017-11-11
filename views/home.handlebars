@@ -1,23 +1,15 @@
 <div id="progressdiv">
-<h2>Progress</h2>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="drawing"></svg>
 </div>
 <div id="header" data-chapter={{chapterId}} data-problem={{problemId}}>
-    <h1>Problem {{problemId}} of {{problemCount}}</h1>
 	<button id="prev-button" onclick="goToPreviousProblem({{chapterId}}, {{problemId}})">Prev</button>
     <button id="next-button" onclick="goToNextProblem({{chapterId}}, {{problemId}}, {{problemCount}})">Next</button>
 </div>
 <div id="problem-and-answers">
-    <!--<div id="problem">-->
-    <!--<ul id="problem-slots">-->
-    <!--{{#each problem.slots}}-->
-    <!--<li class="text-slot answer-slot" ondrop="drop(event)" ondragover="allowDrop(event)">{{this.init}}</li>-->
-    <!--{{/each}}-->
-    <!--</ul>-->
-    <!--</div>-->
     <div id="question">
         {{{problem.question}}}
     </div>
+	<br><br>
     <div id="answers">
         <ul id="answer-slots">
             {{#each problem.choices}}

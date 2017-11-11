@@ -82,21 +82,9 @@ $(document).ready(function () {
     problemId = document.getElementById("header").getAttribute("data-problem");
 
     drawProgress(chapterId, problemId);
-    document.getElementById("next-button").disabled=true;
 
-    const question = document.getElementById("question");
-    const questionChildren = question.childNodes;
-    console.log(question.childElementCount);
-    for (let i = 0; i < questionChildren.length; i++) {
-        if (questionChildren[i].classList && questionChildren[i].classList.contains("answer-slot")) {
-            console.log(questionChildren[i].textContent);
-            chosenAnswers.push(questionChildren[i].textContent);
-            questionChildren[i].setAttribute("draggable", "true");
-            questionChildren[i].addEventListener("drag", drag);
-            questionChildren[i].addEventListener("drop", drop);
-            questionChildren[i].addEventListener("dragover", allowDrop);
-        }
-    }
+    $(".text-slot").on("drop", drop).on("dragover", allowDrop).attr("draggable", true).on("drag", drag);
+//	document.getElementById("next-button").disabled=true;
 });
 
 function allowDrop(ev) {
@@ -104,6 +92,7 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
+    console.log("boom");
     sourceSlot = ev.target;
     sourceText = sourceSlot.textContent.trim();
 
@@ -129,7 +118,7 @@ function drop(ev) {
     chosenAnswers[ev.target.getAttribute("data-answer-index")] = sourceText;
 
     if (checkAnswers()) {
-        document.getElementById("next-button").disabled=false;
+        document.getElementById("next-button").disabled = false;
         setTimeout(function () {
             alert("Your answers are correct! Good job!")
         }, 100);
@@ -159,7 +148,9 @@ function goToNextProblem(chapterId, problemId, problemCount) {
 
 function goToPreviousProblem(chapterId, problemId) {
     if (problemId == 1) {
-        if (chapterId == 1) {
+        console.log(problemId);
+        console.log(chapterId);
+        if (chapterId == 0) {
 
         } else {
             chapterId--;
@@ -174,6 +165,7 @@ function goToPreviousProblem(chapterId, problemId) {
 }
 
 function drawProgress(chapterId, problemId) {
+    if (chapterId == 0) return;
     var progress = document.getElementById("drawing");
     var svgns = 'http://www.w3.org/2000/svg';
     var xlinkns = 'http://www.w3.org/1999/xlink';
@@ -206,5 +198,4 @@ function drawProgress(chapterId, problemId) {
         //console.log(i);
     }
     //console.log("JJJ");
-
 }

@@ -1,38 +1,45 @@
 const contentData = {
-    1: {
+    0: {
+		1: {
+			question: "<h1>That Ain't Right</h1>" +
+			"<h2>An Interactive Introduction To Python</h2><br><br>" +
+			"<p><a href='/1/1'>Start</a></p>",
+			answers: [],
+			choices: []
+		}
+	},
+	1: {
         1: {
             question: "<p>Welcome to That Ain&#39;t Right!<br>" +
-            "Before we begin your training, let's explain how<br>" +
+            "Before we begin your training, let's explain how " +
             "the program works. Click the Next button to continue.</p>",
             answers: [],
             choices: []
         }, 2: {
-            question: "<p>When white text boxes appear on a page,<br>" +
-            "drag answers into them from the gray text boxes below<br>" +
-            "the question. Drag &quot;What&quot; and &quot;How?&quot; into the<br>" +
+            question: "<p>When white text boxes appear on a page, " +
+            "drag answers into them from the gray text boxes below " +
+            "the question. Drag &quot;What&quot; and &quot;How?&quot; into the " +
             "two text slots here.</p>" +
             '<div data-answer-index=0 id="slot0" class="text-slot answer-slot">Text</div>' +
             '<div data-answer-index=1 id="slot1" class="text-slot answer-slot">Box</div>',
             answers: ["What", "How?"],
             choices: ["Gray", "What", "Mister", "How?"]
         }, 3: {
-            question: "<p>The circles at the top mark your progress through a<br>" +
-            "chapter. A white circle is a page with only text, like this one.<br>" +
-            "A gray circle is an unanswered question, and a green circle is a<br>" +
-            "question that's been answered correctly. The white-bordered circle<br>" +
+            question: "<p>The circles at the top mark your progress through a " +
+            "chapter. A white circle is a page with only text, like this one. " +
+            "A gray circle is an unanswered question, and a green circle is a " +
+            "question that's been answered correctly. The white-bordered circle " +
             "is the page you're on now. Just click a page to jump there instantly.</p>",
             answers: [],
             choices: []
         }, 4: {
-            question: "<p>To select a chapter, click &quot;Chapters&quot; to open the sidebar<br>" +
+            question: "<p>To select a chapter, click &quot;Chapters&quot; to open the sidebar " +
             "and click the chapter you want to go to.</p>",
             answers: [],
             choices: []
         }, 5: {
             question: "<h2>Congratulations!</h2>" +
-            "<h3>You cleared the intro!</h3>" +
-            "<p>It took you <span id='timer'></span></p>" +
-            "<p>You answered <span id='score'></span> of 1 questions</p>",
+            "<h3>You cleared the intro!</h3>",
             answers: [],
             choices: []
         }
@@ -47,10 +54,10 @@ const contentData = {
             choices: []
         }, 2: {
             question: "<p>Variables only exist once they are given a value.<br>" +
-            "Python doesn't like it when you try to use a variable that<br>" +
+            "Python doesn't like it when you try to use a variable that " +
             "doesn't exist. Make sure you spell your variables consistently!</p>" +
             '<p class="code">camelot = "A rather silly place"<br>' +
-            'print(<div data-answer-index=0 id="slot0" class="text-slot answer-slot">camelort</div>)</p>',
+            'print(<span data-answer-index=0 id="slot0" class="text-slot answer-slot">camelort</span>)</p>',
             answers: ["camelot"],
             choices: ["camelot"]
         }, 3: {
@@ -86,23 +93,22 @@ const contentData = {
 		},7: {
 			question: "<h2>Congratulations!</h2>" +
             "<h3>You cleared Chapter 1-1!</h3>" +
-            "<p>It took you <span id='timer'></span></p>" +
-            "<p>You answered <span id='score'></span> of 1 questions</p>",
+            "<p>Now let's do some practice problems.</p>",
             answers: [],
             choices: []
 		}
     }, 3: {
 		1: {
 			question: "<p>What needs to change for foo to equal 8?</p>" +
-			'<p class="code">foo = 6</br>foo <div data-answer-index=0 id="slot0" class="text-slot answer-slot">+=</div> <div data-answer-index=1 id="slot1" class="text-slot answer-slot">foo + 2</div></p>',
+			'<p class="code">foo = 6</br>foo <span data-answer-index=0 id="slot0" class="text-slot answer-slot">+=</span> <span data-answer-index=1 id="slot1" class="text-slot answer-slot">foo + 2</span></p>',
 			answers: ["+=", "2"],
 			choices: ["+", "-=", "2", "foo + 8", "foo - 2"]
 		}, 2: {
 			question: "<p>Arrange the lines so bar = 24.</p>" +
 			'<p class="code">bar = 7<br>' +
-			'<div data-answer-index=0 id="slot0" class="text-slot answer-slot">bar += 8</div><br>' +
-			'<div data-answer-index=1 id="slot1" class="text-slot answer-slot">bar -= 3</div><br>' +
-			'<div data-answer-index=2 id="slot2" class="text-slot answer-slot">bar *= 4</div></p>',
+			'<span data-answer-index=0 id="slot0" class="text-slot answer-slot">bar += 8</span><br>' +
+			'<span data-answer-index=1 id="slot1" class="text-slot answer-slot">bar -= 3</span><br>' +
+			'<span data-answer-index=2 id="slot2" class="text-slot answer-slot">bar *= 4</span></p>',
 			answers: ["bar -= 3", "bar *= 4", "bar += 8"],
 			choices: []
 		}, 3: {
@@ -110,7 +116,7 @@ const contentData = {
 			'<p class="code">ministry = "silly walks"<br>' +
 			'ministry[6] = "b"<br>' +
 			'print(ministry)</p>' +
-			'<p><div data-answer-index=0 id="slot0" class="text-slot answer-slot"> </div></p>',
+			'<p><span data-answer-index=0 id="slot0" class="text-slot answer-slot"> </span></p>',
 			answers: ["TypeError on line 2"],
 			choices: ["sillybwalks", "silly balks", "TypeError on line 2"]
 		}, 4: {
@@ -118,14 +124,13 @@ const contentData = {
 			'<p class="code">words = "out of cheese"<br>' +
 			'more_words = words[0:2] + words[-6:]<br>' +
 			'print(more_words)</p>' +
-			'<div data-answer-index=0 id="slot0" class="text-slot answer-slot"> </div>',
+			'<span data-answer-index=0 id="slot0" class="text-slot answer-slot"> </span>',
 			answers: ["oucheese"],
 			choices: ["outcheese", "IndexError on line 2", "oucheese", "out cheese"]
 		}, 5: {
 			question: "<h2>Congratulations!</h2>" +
             "<h3>You cleared Chapter 1-2!</h3>" +
-            "<p>It took you <span id='timer'></span></p>" +
-            "<p>You answered <span id='score'></span> of 4 questions</p>",
+            "<p>Please help us improve the program and not fail our class by giving us <a href=https://docs.google.com/forms/d/e/1FAIpQLScq4JimfF7xoELJerSPigT60_oFS3Kk_MHTL1a1UVECAPVRvQ/viewform?usp=sf_link>feedback</a>.",
             answers: [],
             choices: []
 		}

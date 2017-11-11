@@ -63,8 +63,7 @@ button {
 	margin-left: 3px;
 	margin-right: 3px;
     background-color: lightgray;
-    display: inline-block;
-    float: left;
+    display: inline;
 }
 
 .code {
