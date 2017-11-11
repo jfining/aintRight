@@ -72,16 +72,18 @@
 // };
 let sourceSlot = null;
 let sourceText = null;
+let sourceAnswerIndex = null;
 let chapterId = null;
 let problemId = null;
 const chosenAnswers = [];
 
-$(document).ready(function() {
+$(document).ready(function () {
     chapterId = document.getElementById("header").getAttribute("data-chapter");
     problemId = document.getElementById("header").getAttribute("data-problem");
 
-	drawProgress(chapterId, problemId);
-	
+    drawProgress(chapterId, problemId);
+    document.getElementById("next-button").disabled=true;
+
     const question = document.getElementById("question");
     const questionChildren = question.childNodes;
     console.log(question.childElementCount);
@@ -89,6 +91,8 @@ $(document).ready(function() {
         if (questionChildren[i].classList && questionChildren[i].classList.contains("answer-slot")) {
             console.log(questionChildren[i].textContent);
             chosenAnswers.push(questionChildren[i].textContent);
+            questionChildren[i].setAttribute("draggable", "true");
+            questionChildren[i].addEventListener("drag", drag);
             questionChildren[i].addEventListener("drop", drop);
             questionChildren[i].addEventListener("dragover", allowDrop);
         }
@@ -102,26 +106,41 @@ function allowDrop(ev) {
 function drag(ev) {
     sourceSlot = ev.target;
     sourceText = sourceSlot.textContent.trim();
+
+    // If we're dragging an answer into a different slot, we need to store
+    // its index so we can swap the answers in our chosenAnswers array
+    if (ev.target.classList.contains("answer-slot")) {
+        sourceAnswerIndex = ev.target.getAttribute("data-answer-index");
+    } else {
+        sourceAnswerIndex = null;
+    }
 }
 
 function drop(ev) {
     ev.preventDefault();
     console.log(sourceSlot.textContent);
     sourceSlot.textContent = ev.target.textContent;
+
+    if (sourceAnswerIndex) {
+        chosenAnswers[sourceAnswerIndex] = ev.target.textContent;
+    }
+
     ev.target.textContent = sourceText;
     chosenAnswers[ev.target.getAttribute("data-answer-index")] = sourceText;
-    if(checkAnswers()) {
-        alert("Your answers are correct! Good job!");
+
+    if (checkAnswers()) {
+        document.getElementById("next-button").disabled=false;
+        setTimeout(function () {
+            alert("Your answers are correct! Good job!")
+        }, 100);
     }
 }
 
 function checkAnswers() {
     const correctAnswers = contentData[chapterId][problemId].answers;
-    console.log(correctAnswers);
-    console.log(chosenAnswers);
-    for(let i = 0; i < chosenAnswers.length; i++) {
+    for (let i = 0; i < chosenAnswers.length; i++) {
         console.log(`${chosenAnswers[i]} vs ${correctAnswers[i]}`);
-        if(chosenAnswers[i] !== correctAnswers[i]) {
+        if (chosenAnswers[i] !== correctAnswers[i]) {
             return false;
         }
     }
@@ -129,8 +148,7 @@ function checkAnswers() {
 }
 
 function goToNextProblem(chapterId, problemId, problemCount) {
-    console.log(problemCount);
-    if(problemId === problemCount) {
+    if (problemId === problemCount) {
         chapterId++;
         problemId = 1;
     } else {
@@ -140,55 +158,53 @@ function goToNextProblem(chapterId, problemId, problemCount) {
 }
 
 function goToPreviousProblem(chapterId, problemId) {
-	if(problemId == 1){
-		console.log(problemId);
-		console.log(chapterId);
-		if(chapterId == 1){
-			
-		} else {
-			chapterId--;
-			problemId = Object.keys(contentData[chapterId]).length;
-		}
-	} else {
-		console.log(problemId);
-		console.log(chapterId);
-		problemId--;
-	}
-	window.location.href = `/${chapterId}/${problemId}`;
+    if (problemId == 1) {
+        if (chapterId == 1) {
+
+        } else {
+            chapterId--;
+            problemId = Object.keys(contentData[chapterId]).length;
+        }
+    } else {
+        console.log(problemId);
+        console.log(chapterId);
+        problemId--;
+    }
+    window.location.href = `/${chapterId}/${problemId}`;
 }
 
-function drawProgress(chapterId, problemId){
-	var progress = document.getElementById("drawing");
-	var svgns = 'http://www.w3.org/2000/svg';
-	var xlinkns = 'http://www.w3.org/1999/xlink';
-	for(i = 1; i <= Object.keys(contentData[chapterId]).length ; i++){
-		var shape = document.createElementNS(svgns, "circle");
-		shape.setAttributeNS(null, "cx", (40 + (50 * i)));
-		shape.setAttributeNS(null, "cy", 40);
-		shape.setAttributeNS(null, "r",  20);
-		if(i < problemId){
-			shape.setAttributeNS(null, "fill", "green");
-		} else if(i == Object.keys(contentData[chapterId]).length){
-			shape.setAttributeNS(null, "fill", "yellow");
-		} else if(i == problemId){
-			shape.setAttributeNS(null, "fill", "lightgray")
-		} else {
-			shape.setAttributeNS(null, "fill-opacity", "0");
-		}
-		
-		if(problemId == i){
-			shape.setAttributeNS(null, "stroke", "white");
-		} else if (i == Object.keys(contentData[chapterId]).length){
-			shape.setAttributeNS(null, "stroke", "gold");
-		} else{
-			shape.setAttributeNS(null, "stroke", "black")
-		}
-		svgLink = document.createElementNS(svgns, "a");
-		svgLink.setAttributeNS(xlinkns, "href", `/${chapterId}/${i}`);
-		progress.appendChild(svgLink);
-		svgLink.appendChild(shape);
-		//console.log(i);
-	}
-	//console.log("JJJ");
-	
+function drawProgress(chapterId, problemId) {
+    var progress = document.getElementById("drawing");
+    var svgns = 'http://www.w3.org/2000/svg';
+    var xlinkns = 'http://www.w3.org/1999/xlink';
+    for (i = 1; i <= Object.keys(contentData[chapterId]).length; i++) {
+        var shape = document.createElementNS(svgns, "circle");
+        shape.setAttributeNS(null, "cx", (40 + (50 * i)));
+        shape.setAttributeNS(null, "cy", 40);
+        shape.setAttributeNS(null, "r", 20);
+        if (i < problemId) {
+            shape.setAttributeNS(null, "fill", "green");
+        } else if (i == Object.keys(contentData[chapterId]).length) {
+            shape.setAttributeNS(null, "fill", "yellow");
+        } else if (i == problemId) {
+            shape.setAttributeNS(null, "fill", "lightgray")
+        } else {
+            shape.setAttributeNS(null, "fill-opacity", "0");
+        }
+
+        if (problemId == i) {
+            shape.setAttributeNS(null, "stroke", "white");
+        } else if (i == Object.keys(contentData[chapterId]).length) {
+            shape.setAttributeNS(null, "stroke", "gold");
+        } else {
+            shape.setAttributeNS(null, "stroke", "black")
+        }
+        svgLink = document.createElementNS(svgns, "a");
+        svgLink.setAttributeNS(xlinkns, "href", `/${chapterId}/${i}`);
+        progress.appendChild(svgLink);
+        svgLink.appendChild(shape);
+        //console.log(i);
+    }
+    //console.log("JJJ");
+
 }
