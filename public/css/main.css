@@ -48,7 +48,7 @@ button {
     border-radius: 10px;
     vertical-align: middle;
     margin: 10px;
-    background-color: white;
+    background-color: lightgray;
     width: auto;
     padding: 20px;
     text-align: center;
@@ -62,7 +62,8 @@ button {
 	padding: 5px;
 	margin-left: 3px;
 	margin-right: 3px;
-    background-color: lightgray;
+    background-color: white;
+	min-width: 50px;
     display: inline;
 }
 
