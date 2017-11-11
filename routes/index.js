@@ -11,7 +11,7 @@ const constructorMethod = (app) => {
         })
     });
     app.use("/", (req, res) => {
-        res.redirect("/1/1");
+        res.redirect("/0/1");
     });
     app.use("*", (req, res) => {
         res.redirect('/');

@@ -130,8 +130,7 @@ const contentData = {
 		}, 5: {
 			question: "<h2>Congratulations!</h2>" +
             "<h3>You cleared Chapter 1-2!</h3>" +
-            "<p>It took you <span id='timer'></span></p>" +
-            "<p>You answered <span id='score'></span> of 4 questions</p>",
+            "<p>Please help us improve the program and not fail our class by giving us <a href=https://docs.google.com/forms/d/e/1FAIpQLScq4JimfF7xoELJerSPigT60_oFS3Kk_MHTL1a1UVECAPVRvQ/viewform?usp=sf_link>feedback</a>.",
             answers: [],
             choices: []
 		}
