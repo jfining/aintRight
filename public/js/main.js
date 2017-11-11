@@ -84,7 +84,16 @@ $(document).ready(function () {
     drawProgress(chapterId, problemId);
 
     $(".text-slot").on("drop", drop).on("dragover", allowDrop).attr("draggable", true).on("drag", drag);
-//	document.getElementById("next-button").disabled=true;
+
+    const initialAnswers = $(".answer-slot").toArray();
+
+    for(let i = 0; i < initialAnswers.length; i++) {
+        chosenAnswers[i] = initialAnswers.textContent;
+    }
+
+    if(initialAnswers.length > 0) {
+        document.getElementById("next-button").disabled=true;
+    }
 });
 
 function allowDrop(ev) {
