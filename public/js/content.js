@@ -2,8 +2,9 @@ const contentData = {
     0: {
 		1: {
 			question: "<h1>That Ain't Right</h1>" +
-			"<h2>An Interactive Introduction To Python</h2><br><br>" +
-			"<p><a href='/1/1'>Start</a></p>",
+			"<h2>An Interactive Python Review Guide</h2><br><br>" +
+			"<p><a href='/1/1'>Start</a></p>" +
+			"<p><a href='https://docs.google.com/forms/d/e/1FAIpQLScq4JimfF7xoELJerSPigT60_oFS3Kk_MHTL1a1UVECAPVRvQ/viewform?usp=sf_link'>Student Survey</a></p>",
 			answers: [],
 			choices: []
 		}
@@ -26,15 +27,12 @@ const contentData = {
             choices: ["Gray", "What", "Mister", "How?"]
         }, 3: {
             question: "<p>The circles at the top mark your progress through a " +
-            "chapter. A white circle is a page with only text, like this one. " +
-            "A gray circle is an unanswered question, and a green circle is a " +
-            "question that's been answered correctly. The white-bordered circle " +
+            "chapter. The white-bordered circle " +
             "is the page you're on now. Just click a page to jump there instantly.</p>",
             answers: [],
             choices: []
         }, 4: {
-            question: "<p>To select a chapter, click &quot;Chapters&quot; to open the sidebar " +
-            "and click the chapter you want to go to.</p>",
+            question: "<p>To go to a different chapter, use the Chapters sidebar on the left.</p>",
             answers: [],
             choices: []
         }, 5: {
