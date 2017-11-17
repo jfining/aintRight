@@ -101,7 +101,11 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    console.log("boom");
+	ev.stopPropagation();
+	if(ev.dataTransfer == undefined){
+		return;
+	}
+	ev.dataTransfer.setData("text/plain", "dummy"); //Needed for Firefox to recognize the drag
     sourceSlot = ev.target;
     sourceText = sourceSlot.textContent.trim();
 
@@ -152,6 +156,10 @@ function goToNextProblem(chapterId, problemId, problemCount) {
     } else {
         problemId++;
     }
+	if (chapterId > 3) {
+		chapterId = 0;
+		problemId = 1;
+	}
     window.location.href = `/${chapterId}/${problemId}`;
 }
 
