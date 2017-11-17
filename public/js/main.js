@@ -102,10 +102,8 @@ function allowDrop(ev) {
 
 function drag(ev) {
 	ev.stopPropagation();
-	if(ev.dataTransfer == undefined){
-		return;
-	}
-	ev.dataTransfer.setData("text/plain", "dummy"); //Needed for Firefox to recognize the drag
+    sourceAnswerIndex = null;
+
     sourceSlot = ev.target;
     sourceText = sourceSlot.textContent.trim();
 
@@ -113,8 +111,12 @@ function drag(ev) {
     // its index so we can swap the answers in our chosenAnswers array
     if (ev.target.classList.contains("answer-slot")) {
         sourceAnswerIndex = ev.target.getAttribute("data-answer-index");
-    } else {
-        sourceAnswerIndex = null;
+    }
+
+    try {
+        ev.dataTransfer.setData("text/plain", "dummy"); //Needed for Firefox to recognize the drag
+    } catch (e) {
+        // This stops the console from being error spammed
     }
 }
 
