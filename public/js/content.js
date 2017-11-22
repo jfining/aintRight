@@ -174,10 +174,99 @@ const contentData = {
 			choices: ["outcheese", "IndexError on line 2", "oucheese", "out cheese"]
 		}, 10: {
 			question: "<h2>Congratulations!</h2>" +
-            "<h3>You cleared Chapter 2!</h3>" +
-            "<p>Please help us improve the program and not fail our class by giving us <a href=https://docs.google.com/forms/d/e/1FAIpQLScq4JimfF7xoELJerSPigT60_oFS3Kk_MHTL1a1UVECAPVRvQ/viewform?usp=sf_link>feedback</a>.",
+            "<h3>You cleared Chapter 2!</h3>",
             answers: [],
             choices: []
+		}
+	}, 4:{
+		1: {
+			question: "<h1>Chapter 3. True/False and If/Else</h1>" +
+			"<p>In this lesson, you will learn about Boolean expressions, truthy and falsy values, and how to make decisions using <b>if</b>, <b>elif</b>, and <b>else</b>.</p>",
+			answers: [],
+			choices: []
+		}, 2:{
+			question: "<p>A Boolean expression is either <b>True</b> or <b>False</b>. That's it, only those two options.<br>" +
+			"<p><span class='code'>5 == 5</span> is an expression that evaluates to True. Note the use of <b>==</b> for comparison. Don't mix it up with the assignment operator <b>=</b>.<br>" +
+			"<span class='code'>4 &gt;= 8</span> is an expression that evaluates to False, because 4 is neither greater than nor equal to 8.<br>",
+			answers: [],
+			choices: []
+		}, 3:{
+			question: "<p>Here's how you spell each of the comparison operators.</p>" +
+			"<p class='code'>== <span class='comment'>#Is equal to</span><br>" +
+			"!= <span class='comment'>#Does not equal</span><br>" +
+			"> <span class='comment'>#Is greater than</span><br>" +
+			">= <span class='comment'>#Is greater than or equal to</span><br>" +
+			"< <span class='comment'>#Is less than</span><br>" +
+			"<= <span class='comment'>#Is less than or equal to</span><br>",
+			answers: [],
+			choices: []
+		},
+		4:{
+			question: "<p>What is the truth value of each of these statements?</p>" +
+			'<p class="code">"spam" == "spam" <span data-answer-index=0 id="slot0" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br><br>' +
+			'1 == 0 <span data-answer-index=1 id="slot1" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br><br>' +
+			'3 != 4 <span data-answer-index=2 id="slot2" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>',
+			answers: ["True", "False", "True"],
+			choices: ["True", "True", "True", "False", "False", "False"]
+		},
+		5:{
+			question: "<p>An <b>if</b> block looks like this:</p>" +
+			"<p class='code'>if condition:<br>" +
+			'&nbsp;&nbsp;print("True branch")<br>' +
+			'else:<br>' +
+			'&nbsp;&nbsp;print("False branch")<br>' +
+			'print("Not part of the if block")</p>' +
+			"<p>Only one of these branches will execute, depending on the truth value of <b>condition</b>. Note that the <b>else</b> and false branch are optional. You can have an <b>if</b> block with only a true branch, and if the condition is false it will just do nothing. To have an empty true branch, replace it with the word </b>pass</b> so Python knows the branch is still there.</p>" +
+			"<p>The indents here are required. Unlike C and its ilk, Python uses whitespace to determine which block is which. It makes your code easier to read too!</p>",
+			answers: [],
+			choices: []
+		}, 6:{
+			question: '<p>Which condition will print out the phrase "dead parrot"?</p>' +
+			'<p class="code">status = "pining for the fjords"<br>' +
+			'if <span data-answer-index=0 id="slot0" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>:<br>' +
+			'&nbsp;&nbsp;print("dead parrot")</p>',
+			answers: ['status == "pining for the fjords"'],
+			choices: ['status = "pining for the fjords"', 'status == "pining for the fjords"', 'status != "pining for the fjords"']
+		}, 7:{
+			question: '<p>This <b>if</b> block has an <b>elif</b> branch, which is short for "else if". The conditions are checked in order, and the first one to evaluate True is chosen. If all conditions are false, then the <b>else</b> branch is chosen.</p>' +
+			'<p class="code">if foo == "bar":<br>&nbsp;&nbsp;print("holy grail")<br>' +
+			'elif foo == "baz":<br>&nbsp;&nbsp;print("life of brian")<br>' +
+			'else:<br>&nbsp;&nbsp;print("something completely different")</p>'
+		},
+		8:{
+			question: "<p>Non-boolean expressions can have truthy or falsy values too.</p>" +
+			"<p>These values are falsy, or evaluate to False in an if statement:<br>" +
+			'<span class="code">None<br>False<br>0 <span class="comment">#(of any numeric type)</span><br>' +
+			'"" <span class="comment">#or any other empty string or sequence</span><br>' +
+			'{} <span class="comment">#or any other empty mapping</span></span><br>' +
+			'Any object of a user-defined class that returns a __nonzero__() or __len__() value of 0 or False</p>' +
+			"<p>All other values are truthy. Don't worry if you don't understand the last two examples. Just remember that negative numbers and non-empty strings are truthy in Python.",
+			answers: [],
+			choices: []
+		},
+		9: {
+			question: "<p>What is the end value of <b>eggs</b> when this code is run?</p>" +
+			"<p class='code'>spam = 42<br>if spam < 30:<br>&nbsp;&nbsp;eggs = 'bonk'<br>" +
+			"elif spam > 35:<br>&nbsp;&nbsp;eggs = 'biff'<br>elif spam == 42:<br>" +
+			"&nbsp;&nbsp;eggs = 'wham'<br>else:<br>&nbsp;&nbsp;eggs = 'pow!'</p>" +
+			"<p><span data-answer-index=0 id='slot0' class='text-slot answer-slot'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>",
+			answers: ["'biff'"],
+			choices: ["'bonk'", "'biff'", "'wham'", "'pow!'"]
+		},
+		10: {
+			question: "<p>Why doesn't this code print <b>42</b>?</p>" +
+			'<p class="code">eggs = -1<br>if eggs:<br>&nbsp;&nbsp;print(24)<br>' +
+			'else:<br>&nbsp;&nbsp;print(42)</p>' +
+			"<p><span data-answer-index=0 id='slot0' class='text-slot answer-slot'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>",
+			answers: ["Negative numbers are truthy, so the program prints 24 instead"],
+			choices: ["You can't use a non-boolean type as a condition", "Negative numbers are truthy, so the program prints 24 instead", "The code does print 42, what are you talking about?"]
+		},
+		11: {
+			question: "<h2>Congratulations!</h2>" +
+            "<h3>You cleared Chapter 3!</h3>" +
+            "<p>Please help us improve the program and not fail our class by giving us <a href=https://docs.google.com/forms/d/e/1FAIpQLScq4JimfF7xoELJerSPigT60_oFS3Kk_MHTL1a1UVECAPVRvQ/viewform?usp=sf_link>feedback</a>.",
+			answers: [],
+			choices: []
 		}
 	}
 };

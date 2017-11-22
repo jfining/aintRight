@@ -158,7 +158,7 @@ function goToNextProblem(chapterId, problemId, problemCount) {
     } else {
         problemId++;
     }
-	if (chapterId > 3) {
+	if (chapterId > 4) {
 		chapterId = 0;
 		problemId = 1;
 	}
