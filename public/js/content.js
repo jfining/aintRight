@@ -180,8 +180,8 @@ const contentData = {
 		}
 	}, 4:{
 		1: {
-			question: "<h1>Chapter 3. True/False and If/Else</h1>" +
-			"<p>In this lesson, you will learn about Boolean expressions, truthy and falsy values, and how to make decisions using <b>if</b>, <b>elif</b>, and <b>else</b>.</p>",
+			question: "<h1>Chapter 3. True/False and Logic</h1>" +
+			"<p>In this lesson, you will learn about Boolean expressions, truthy and falsy values, and the logical operators.",
 			answers: [],
 			choices: []
 		}, 2:{
@@ -210,30 +210,6 @@ const contentData = {
 			choices: ["True", "True", "True", "False", "False", "False"]
 		},
 		5:{
-			question: "<p>An <b>if</b> block looks like this:</p>" +
-			"<p class='code'>if condition:<br>" +
-			'&nbsp;&nbsp;print("True branch")<br>' +
-			'else:<br>' +
-			'&nbsp;&nbsp;print("False branch")<br>' +
-			'print("Not part of the if block")</p>' +
-			"<p>Only one of these branches will execute, depending on the truth value of <b>condition</b>. Note that the <b>else</b> and false branch are optional. You can have an <b>if</b> block with only a true branch, and if the condition is false it will just do nothing. To have an empty true branch, replace it with the word </b>pass</b> so Python knows the branch is still there.</p>" +
-			"<p>The indents here are required. Unlike C and its ilk, Python uses whitespace to determine which block is which. It makes your code easier to read too!</p>",
-			answers: [],
-			choices: []
-		}, 6:{
-			question: '<p>Which condition will print out the phrase "dead parrot"?</p>' +
-			'<p class="code">status = "pining for the fjords"<br>' +
-			'if <span data-answer-index=0 id="slot0" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>:<br>' +
-			'&nbsp;&nbsp;print("dead parrot")</p>',
-			answers: ['status == "pining for the fjords"'],
-			choices: ['status = "pining for the fjords"', 'status == "pining for the fjords"', 'status != "pining for the fjords"']
-		}, 7:{
-			question: '<p>This <b>if</b> block has an <b>elif</b> branch, which is short for "else if". The conditions are checked in order, and the first one to evaluate True is chosen. If all conditions are false, then the <b>else</b> branch is chosen.</p>' +
-			'<p class="code">if foo == "bar":<br>&nbsp;&nbsp;print("holy grail")<br>' +
-			'elif foo == "baz":<br>&nbsp;&nbsp;print("life of brian")<br>' +
-			'else:<br>&nbsp;&nbsp;print("something completely different")</p>'
-		},
-		8:{
 			question: "<p>Non-boolean expressions can have truthy or falsy values too.</p>" +
 			"<p>These values are falsy, or evaluate to False in an if statement:<br>" +
 			'<span class="code">None<br>False<br>0 <span class="comment">#(of any numeric type)</span><br>' +
@@ -244,7 +220,68 @@ const contentData = {
 			answers: [],
 			choices: []
 		},
+		6:{
+			question: "<p>Boolean expressions can be combined using logical operators." +
+			"The three logical operators in Python are <b>and</b>, <b>or</b>, and <b>not</b>.</p>" +
+			"<p class='code'>True and True == True<br>True and False == False<br>False and False == False<br>" +
+			"True or True == True<br>True or False == True<br>False or False == False<br>" +
+			"not True == False<br>not False == True</p>",
+			answers: [],
+			choices: []
+		}, 7:{
+			question: "<p>!=, ==, and other such comparisons are evaluated before logical operators. <b>not</b> is evaluated next, then <b>and</b>, then <b>or</b>. Use parentheses to change the precedence.</p>" +
+			"<p class='code'>not False or True and False <span class='comment'>#True</span><br>" +
+			"not (False or True) and False <span class='comment'>#False</span><br>" +
+			"not (False or True and False) <span class='comment'>#True</span></p>",
+			answers: [],
+			choices: []
+		},
+		8:{
+			question: "<p>If foo = 5, bar = 15, and baz = 8, what is the truth value of the following conditions?</p>" +
+			"<p class='code'>foo < baz and baz < bar <span data-answer-index=0 id='slot0' class='text-slot answer-slot'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br><br>" +
+			'foo + baz == bar or bar < baz * 2 <span data-answer-index=1 id="slot1" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br><br>' +
+			'not (foo == bar / 3) or (baz and not foo) <span data-answer-index=2 id="slot2" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>',
+			answers: ["True", "True", "False"],
+			choices: ["True", "True", "True", "False", "False", "False"]
+		},
 		9: {
+			question: "<h2>Congratulations!</h2>" +
+            "<h3>You cleared Chapter 3!</h3>",
+			answers: [],
+			choices: []
+		}
+	}, 5:{
+		1: {
+			question: "<h1>Chapter 4. If/Else and While</h1>" +
+			"<p>In this lesson, you will learn about <b>if</b> blocks and <b>while</b> loops.",
+			answers: [],
+			choices: []
+		},
+		2:{
+			question: "<p>An <b>if</b> block looks like this:</p>" +
+			"<p class='code'>if condition:<br>" +
+			'&nbsp;&nbsp;print("True branch")<br>' +
+			'else:<br>' +
+			'&nbsp;&nbsp;print("False branch")<br>' +
+			'print("Not part of the if block")</p>' +
+			"<p>Only one of these branches will execute, depending on the truth value of <b>condition</b>. Note that the <b>else</b> and false branch are optional. You can have an <b>if</b> block with only a true branch, and if the condition is false it will just do nothing. To have an empty true branch, replace it with the word <b>pass</b> so Python knows the branch is still there.</p>" +
+			"<p>The indents here are required. Unlike C and its ilk, Python uses whitespace to determine which block is which. It makes your code easier to read too!</p>",
+			answers: [],
+			choices: []
+		}, 3:{
+			question: '<p>Which condition will print out the phrase "dead parrot"?</p>' +
+			'<p class="code">status = "pining for the fjords"<br>' +
+			'if <span data-answer-index=0 id="slot0" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>:<br>' +
+			'&nbsp;&nbsp;print("dead parrot")</p>',
+			answers: ['status == "pining for the fjords"'],
+			choices: ['status = "pining for the fjords"', 'status == "pining for the fjords"', 'status != "pining for the fjords"']
+		}, 4:{
+			question: '<p>This <b>if</b> block has an <b>elif</b> branch, which is short for "else if". The conditions are checked in order, and the first one to evaluate True is chosen. If all conditions are false, then the <b>else</b> branch is chosen.</p>' +
+			'<p class="code">if foo == "bar":<br>&nbsp;&nbsp;print("holy grail")<br>' +
+			'elif foo == "baz":<br>&nbsp;&nbsp;print("life of brian")<br>' +
+			'else:<br>&nbsp;&nbsp;print("something completely different")</p>'
+		},
+		5: {
 			question: "<p>What is the end value of <b>eggs</b> when this code is run?</p>" +
 			"<p class='code'>spam = 42<br>if spam < 30:<br>&nbsp;&nbsp;eggs = 'bonk'<br>" +
 			"elif spam > 35:<br>&nbsp;&nbsp;eggs = 'biff'<br>elif spam == 42:<br>" +
@@ -253,7 +290,7 @@ const contentData = {
 			answers: ["'biff'"],
 			choices: ["'bonk'", "'biff'", "'wham'", "'pow!'"]
 		},
-		10: {
+		6: {
 			question: "<p>Why doesn't this code print <b>42</b>?</p>" +
 			'<p class="code">eggs = -1<br>if eggs:<br>&nbsp;&nbsp;print(24)<br>' +
 			'else:<br>&nbsp;&nbsp;print(42)</p>' +
@@ -261,9 +298,31 @@ const contentData = {
 			answers: ["Negative numbers are truthy, so the program prints 24 instead"],
 			choices: ["You can't use a non-boolean type as a condition", "Negative numbers are truthy, so the program prints 24 instead", "The code does print 42, what are you talking about?"]
 		},
-		11: {
+		7:{
+			question: "<p>A <b>while</b> loop will continue to execute as long as its condition is true. When the condition evaluates as false, the <b>else</b> block (which is optional) will execute once, then the program will move on.</p>" +
+			"<p class='code'>foo = 0<br>while foo < 5:<br>&nbsp;&nbsp;foo += 1<br>&nbsp;&nbsp;print(foo)<br>" +
+			"else:<br>print (foo * 2)</p>" +
+			"<p>This code will go through the loop 5 times with <b>foo</b> equalling 0, 1, 2, 3, and 4. When <b>foo</b> increases to 5 on the fifth iteration, the condition becomes false and the next iteration will go to the <b>else</b> block instead. This will print the numbers 1, 2, 3, 4, 5, and 10.</p>",
+			answers: [],
+			choices: []
+		}, 8:{
+			question: "<p>How many times will this loop execute?</p>" +
+			"<p class='code'>foo = 1<br>while foo <= 10:<br>" +
+			"&nbsp;&nbsp;print('spam')<br>&nbsp;&nbsp;foo *= 2</p>" +
+			'<p><span data-answer-index=0 id="slot0" class="text-slot answer-slot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>',
+			answers: ["4"],
+			choices: ["3", "4", "5", "Infinite loop"]
+		}, 9:{
+			question: "<p>This code gets stuck in an infinite loop. Please fix it so that it counts 3, 6, 9.</p>" +
+			"<p class='code'>skip_count = 0<br>" +
+			"<span data-answer-index=0 id='slot0' class='text-slot answer-slot'>while skip_count != 10</span>:</br>" +
+			"&nbsp;&nbsp;skip_count += 3;<br>&nbsp;&nbsp;print(skip_count)</p>",
+			answers: ["while skip_count <= 10"],
+			choices: ["while skip_count == 10", "while skip_count != 9", "while skip_count <= 10", "while skip_count > 10"]
+		},
+		10: {
 			question: "<h2>Congratulations!</h2>" +
-            "<h3>You cleared Chapter 3!</h3>" +
+            "<h3>You cleared Chapter 4!</h3>" +
             "<p>Please help us improve the program and not fail our class by giving us <a href=https://docs.google.com/forms/d/e/1FAIpQLScq4JimfF7xoELJerSPigT60_oFS3Kk_MHTL1a1UVECAPVRvQ/viewform?usp=sf_link>feedback</a>.",
 			answers: [],
 			choices: []
