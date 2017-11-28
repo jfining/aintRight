@@ -23,6 +23,7 @@ $(document).ready(function () {
         document.getElementById("next-button").disabled=true;
     } else {
         document.getElementById("check-answers-button").disabled=true;
+        document.getElementById("reset-answers-button").disabled=true;
     }
 });
 
@@ -75,6 +76,10 @@ function checkAnswers() {
     alert("Your answers are correct! Good job!");
     document.getElementById("next-button").disabled=false;
     return true;
+}
+
+function resetAnswers() {
+    window.location.reload();
 }
 
 function goToNextProblem(chapterId, problemId, problemCount) {
