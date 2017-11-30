@@ -3,7 +3,8 @@
 </div>
 <div id="header" data-chapter={{chapterId}} data-problem={{problemId}}>
 	<button id="prev-button" onclick="goToPreviousProblem({{chapterId}}, {{problemId}})">Prev</button>
-    <button id="check-answers-button" onclick="checkAnswers()">Check Answers</button>
+    <button class="answers-button" id="check-answers-button" onclick="checkAnswers()">Check Answers</button>
+    <button class="answers-button" id="reset-answers-button" onclick="resetAnswers()">Reset Answers</button>
     <button id="next-button" onclick="goToNextProblem({{chapterId}}, {{problemId}}, {{problemCount}})">Next</button>
 </div>
 <div id="problem-and-answers">
