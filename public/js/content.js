@@ -114,7 +114,7 @@ const contentData = {
 		},
 		2: {
             question: "<p>Variables can be modified with syntax like:</p>" +
-			"<p class='code'>spam = 2</br>spam = spam + 5 //spam now equals 2 + 5, or 7</p>" +
+			"<p class='code'>spam = 2</br>spam = spam + 5 <span class='comment'>#spam now equals 2 + 5, or 7</span></p>" +
 			"<p>This can be shortened with some special syntax:</p>" +
 			"<p class='code'>spam = 2</br>spam += 5</p>",
             answers: [],
@@ -138,16 +138,16 @@ const contentData = {
 		5: {
 			question: "<p>String indices equal or greater than the length of the string cause errors.<br>" +
 			"Negative string indices less than the negative length of the string cause errors.</p>" +
-			'<p class="code">foo = "spam"<br>foo[3] <span class="comment"># "m" (remember, indices start from 0, not 1!)<br>' +
-			'foo[4] # Gives an IndexError<br>foo[-4] <span class="comment"># "s"<br>foo[-5] <span class="comment"># Gives an IndexError</p>',
+			'<p class="code">foo = "spam"<br>foo[3] <span class="comment"># "m" (remember, indices start from 0, not 1!)</span><br>' +
+			'foo[4] # Gives an IndexError<br>foo[-4] <span class="comment"># "s"<br>foo[-5] <span class="comment"># Gives an IndexError</span></p>',
 			answers: [],
 			choices: []
 		},
 		6: {
 			question: "<p>What needs to change for foo to equal 8?</p>" +
-			'<p class="code">foo = 6</br>foo <span data-answer-index=0 id="slot0" class="text-slot answer-slot">+=</span> <span data-answer-index=1 id="slot1" class="text-slot answer-slot">foo + 2</span></p>',
+			'<p class="code">foo = 6</br>foo <span data-answer-index=0 id="slot0" class="text-slot answer-slot">+</span> <span data-answer-index=1 id="slot1" class="text-slot answer-slot">foo + 2</span></p>',
 			answers: ["+=", "2"],
-			choices: ["+", "-=", "2", "foo + 8", "foo - 2"]
+			choices: ["+=", "-=", "2", "foo + 8", "foo - 2"]
 		}, 7: {
 			question: "<p>Arrange the lines so bar = 24.</p>" +
 			'<p class="code">bar = 7<br>' +
@@ -301,7 +301,7 @@ const contentData = {
 		7:{
 			question: "<p>A <b>while</b> loop will continue to execute as long as its condition is true. When the condition evaluates as false, the <b>else</b> block (which is optional) will execute once, then the program will move on.</p>" +
 			"<p class='code'>foo = 0<br>while foo < 5:<br>&nbsp;&nbsp;foo += 1<br>&nbsp;&nbsp;print(foo)<br>" +
-			"else:<br>print (foo * 2)</p>" +
+			"else:<br>&nbsp;&nbsp;print (foo * 2)</p>" +
 			"<p>This code will go through the loop 5 times with <b>foo</b> equalling 0, 1, 2, 3, and 4. When <b>foo</b> increases to 5 on the fifth iteration, the condition becomes false and the next iteration will go to the <b>else</b> block instead. This will print the numbers 1, 2, 3, 4, 5, and 10.</p>",
 			answers: [],
 			choices: []
@@ -316,7 +316,7 @@ const contentData = {
 			question: "<p>This code gets stuck in an infinite loop. Please fix it so that it counts 3, 6, 9.</p>" +
 			"<p class='code'>skip_count = 0<br>" +
 			"<span data-answer-index=0 id='slot0' class='text-slot answer-slot'>while skip_count != 10</span>:</br>" +
-			"&nbsp;&nbsp;skip_count += 3;<br>&nbsp;&nbsp;print(skip_count)</p>",
+			"&nbsp;&nbsp;skip_count += 3<br>&nbsp;&nbsp;print(skip_count)</p>",
 			answers: ["while skip_count <= 10"],
 			choices: ["while skip_count == 10", "while skip_count != 9", "while skip_count <= 10", "while skip_count > 10"]
 		},
